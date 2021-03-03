@@ -71,9 +71,8 @@ plot(x, y)
 %% 7
 [x, y] = meshgrid(-2:0.05:2)
 z = 4 .* sin(2 * pi .* x) .* cos(1.5 * pi .* y) .* (1 -(y .* y)) .* x .* (1 - x);
-fig = mesh(x, y, z, 'FaceAlpha', '0')
-dir = [1 0 0];
-rotate(fig, dir, 180)
+mesh(x, y, z, 'FaceAlpha', '0')
+view(10, 45)
 %% 8
 [x, y] = meshgrid(-2:0.05:2);
 z = 4 .* sin(2 * pi .* x) .* cos(1.5 * pi .* y) .* (1 -(y .* y)) .* x .* (1 - x);
