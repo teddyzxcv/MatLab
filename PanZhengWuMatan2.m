@@ -78,10 +78,12 @@ view(10, 45)
 z = 4 .* sin(2 * pi .* x) .* cos(1.5 * pi .* y) .* (1 -(y .* y)) .* x .* (1 - x);
 contour3(x, y, z, -3:0.01:3)
 colorbar;
+view(30, 45)
 %% 9
 [x, y] = meshgrid(-2:0.05:2);
 z = 4 .* sin(2 * pi .* x) .* cos(1.5 * pi .* y) .* (1 -(y .* y)) .* x .* (1 - x);
 surfl(x, y, z, [-90 45])
+colormap(summer)
 %% 10
 [x, y] = meshgrid(-1:0.05:1)
 z = (sin(x) .* sin(x) + cos(y) .* cos(y)).^(x .* y)
