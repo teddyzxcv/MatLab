@@ -188,7 +188,7 @@ quiver3(0, 0, 0, dc(3) * d(1), dc(3) * d(2), dc(3) * d(3), 'b')
 hold off
 %% 9
 a = [1, -2, 0];
-b = [0, 1, 1];
+b = [0, 1, 2];
 c = [1, 2, 2];
 alp = 2;
 isequal(dot(a, b), dot(b, a))
@@ -201,11 +201,12 @@ a = [0, 0, 0];
 dot(a, a) == 0
 %% 10
 a = [1, -2, 0];
-b = [0, 1, 1];
+b = [0, 1, 2];
 c = [1, 2, 2];
 isequal(dot(a, b) * c, a * dot(b, c))
+b = [1, 2, 2]
 
-if (dot(a, b) == dot(a, c)) && (a ~= [0, 0, 0])
+if (isequal(dot(a, b), dot(a, c))) && (~isequal(a, [0, 0, 0]))
     isequal(b, c)
 end
 
