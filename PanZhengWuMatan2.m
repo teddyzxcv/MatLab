@@ -16,19 +16,17 @@ comet3(x, y, z, 0.9)
 view(-58, -13)
 grid on
 %% 3
-X = [25, 10, 20, 30, 15]
-ex = [0, 1, 0, 0, 0]
-[x, y] = meshgrid(-1:0.05:1, -1:0.05:1)
-plot(x, y)
+X = [25 10 20 30 15]
+ex = [0 1 0 0 0]
+grid on;
 hold on;
 pie3(X, ex)
 view(-45, 30)
-grid on
 %% 4
 x = 0:0.01:1
 y = exp(-x) .* (sin(x) + 0.1 * sin(100 * pi * x));
 plot(x, y, 'r')
-hold on;
+hold on;    
 x = 0:1/99:1
 y = exp(-x) .* (sin(x) + 0.1 * sin(100 * pi * x));
 plot(x, y, 'green')

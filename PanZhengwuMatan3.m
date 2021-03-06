@@ -79,6 +79,7 @@ hold off
 %% 9
 xL = -2; xR = 0;
 yL = 0; yR = 2;
+zL = 0; zR = 2;
 a = 1.5; b = 3;
 x = xL:0.05:xR;
 y = yL:0.05:yR;
@@ -87,10 +88,12 @@ z = (x.^2 ./ a.^2 - y.^2 ./ b.^2) ./ 2;
 U = X ./ sqrt(X.^2 + Y.^2 + Z.^2);
 V = Y ./ sqrt(X.^2 + Y.^2 + Z.^2);
 W = Z ./ sqrt(X.^2 + Y.^2 + Z.^2);
+grid on
 quiver3(X, Y, Z, U, V, W)
 %% 10
 xL = -2; xR = 0;
 yL = -2; yR = 0;
+zL = 0; zR = 2;
 a = 1; b = 2; c = 1;
 x = xL:0.05:xR;
 y = yL:0.05:yR;
@@ -100,6 +103,7 @@ U = X ./ sqrt(X.^2 + Y.^2 + Z.^2);
 V = Y ./ sqrt(X.^2 + Y.^2 + Z.^2);
 W = Z ./ sqrt(X.^2 + Y.^2 + Z.^2);
 [Cx, Cy, Cz] = meshgrid(xL:(xR - xL) / 3:xR, yL:(yR - yL) / 3:yR, zL:(zR - zL) / 3:zR);
+grid on
 fig = coneplot(X, Y, Z, U, V, W, Cx, Cy, Cz, 4)
 set(fig, 'FaceColor', 'b', 'EdgeColor', 'g')
 view(45, 45)
@@ -115,6 +119,7 @@ V = Y ./ sqrt(X.^2 + Y.^2 + Z.^2);
 W = Z ./ sqrt(X.^2 + Y.^2 + Z.^2);
 [Cx, Cy, Cz] = meshgrid(xL:(xR - xL) / 3:xR, yL:(yR - yL) / 3:yR, zL:(zR - zL) / 3:zR);
 figure
+grid on
 fig = coneplot(X, Y, Z, U, V, W, Cx, Cy, Cz, 4)
 set(fig, 'FaceColor', 'g', 'EdgeColor', 'k')
 axis tight
@@ -129,6 +134,7 @@ V = Y ./ sqrt(X.^2 + Y.^2 + Z.^2);
 W = Z ./ sqrt(X.^2 + Y.^2 + Z.^2);
 [Cx, Cy, Cz] = meshgrid(xL:(xR - xL) / 3:xR, yL:(yR - yL) / 3:yR, zL:(zR - zL) / 3:zR);
 figure
+grid on
 fig = coneplot(X, Y, Z, U, V, W, Cx, Cy, Cz, 4)
 set(fig, 'FaceColor', 'c', 'EdgeColor', 'm')
 axis tight
