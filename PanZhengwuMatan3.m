@@ -30,7 +30,7 @@ quiver(x, y, Ux, Uy, 0)
 subplot(2, 2, 2)
 quiver(x, y, Ux, Uy, 1.5)
 subplot(2, 2, 3)
-quiver(x, y, Ux, Uy, 3)
+quiver(x, y, Ux, Uy, 0.3)
 %% 5
 t = 0:0.2:2;
 x = 0.5 .* t;
@@ -44,7 +44,7 @@ quiver(x, y, Ux, Uy, 0)
 subplot(2, 2, 2)
 quiver(x, y, Ux, Uy, 1.5)
 subplot(2, 2, 3)
-quiver(x, y, Ux, Uy, 3)
+quiver(x, y, Ux, Uy, 0.3)
 figure(fign)
 %% 6
 t = 0:0.2:2;
@@ -77,53 +77,46 @@ quiver3(x, y, z, U, V, W, 4, 'k')
 view(45, 45)
 hold off
 %% 9
-xL = -2; xR = 0;
-yL = 0; yR = 2;
-zL = 0; zR = 2;
-a = 1.5; b = 3;
-x = xL:0.05:xR;
-y = yL:0.05:yR;
-z = (x.^2 ./ a.^2 - y.^2 ./ b.^2) ./ 2;
-[X, Y, Z] = meshgrid(x, y, z);
-U = X ./ sqrt(X.^2 + Y.^2 + Z.^2);
-V = Y ./ sqrt(X.^2 + Y.^2 + Z.^2);
-W = Z ./ sqrt(X.^2 + Y.^2 + Z.^2);
-grid on
-quiver3(X, Y, Z, U, V, W)
+figure;
+hold on;
+grid on;
+a = 1;
+b = 1;
+[x, y] = meshgrid(-1:0.01:1);
+z = (x.^2 / a.^2 - y.^2 / b^2) / 2;
+surf(x, y, z);
+[u, v, w] = surfnorm(x, y, z);
+quiver3(x, y, z, u, v, w, 1);
+view(-15, 0);
 %% 10
-xL = -2; xR = 0;
-yL = -2; yR = 0;
-zL = 0; zR = 2;
-a = 1; b = 2; c = 1;
-x = xL:0.05:xR;
-y = yL:0.05:yR;
-z = sqrt((1 + x.^2 ./ a.^2 + y.^2 ./ b.^2) .* (c.^2));
-[X, Y, Z] = meshgrid(x, y, z);
-U = X ./ sqrt(X.^2 + Y.^2 + Z.^2);
-V = Y ./ sqrt(X.^2 + Y.^2 + Z.^2);
-W = Z ./ sqrt(X.^2 + Y.^2 + Z.^2);
-[Cx, Cy, Cz] = meshgrid(xL:(xR - xL) / 3:xR, yL:(yR - yL) / 3:yR, zL:(zR - zL) / 3:zR);
-grid on
-fig = coneplot(X, Y, Z, U, V, W, Cx, Cy, Cz, 4)
-set(fig, 'FaceColor', 'b', 'EdgeColor', 'g')
-view(45, 45)
-%% 11
-u = (0:0.1:3)';
-v = [0:0.1:3];
-x = cos(u) .* cos(v);
-y = sin(u) .* sin(v);
-z = u .* v;
-[X, Y, Z] = meshgrid(x, y, z);
-U = X ./ sqrt(X.^2 + Y.^2 + Z.^2);
-V = Y ./ sqrt(X.^2 + Y.^2 + Z.^2);
-W = Z ./ sqrt(X.^2 + Y.^2 + Z.^2);
-[Cx, Cy, Cz] = meshgrid(xL:(xR - xL) / 3:xR, yL:(yR - yL) / 3:yR, zL:(zR - zL) / 3:zR);
 figure
-grid on
-fig = coneplot(X, Y, Z, U, V, W, Cx, Cy, Cz, 4)
-set(fig, 'FaceColor', 'g', 'EdgeColor', 'k')
-axis tight
-view(45, 45)
+hold on;
+grid on;
+a = 2;
+b = 2;
+c = 2;
+[x, y] = meshgrid(-2:0.01:2);
+z = abs((x.^2 / a^2 + y.^2 / b^2 + 1).*c^2);
+z1 = -z;
+surf(x, y, z);
+surf(x, y, z1);
+[u, v, w] = surfnorm(x, y, z1);
+quiver3(x, y, z1, u, v, w, 1);
+[u, v, w] = surfnorm(x, y, z);
+quiver3(x, y, z, u, v, w, 1);
+view(75, 10);
+%% 11
+figure;
+hold on;
+grid on;
+[u, v] = meshgrid(0:0.1:3);
+x = cos(u).*cos(v);
+y = sin(u).*sin(v);
+z = u.*v;
+surf(x, y, z);
+[u, v, w] = surfnorm(x, y, z);
+quiver3(x, y, z, u, v, w, 1);
+view(30, 60);
 %% 12
 xL = 1; xR = 3;
 yL = -1; yR = 1;
